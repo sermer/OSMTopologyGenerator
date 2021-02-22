@@ -27,9 +27,17 @@ namespace OSM_Topography
         Dictionary<string, OSM_ElevationPoint> elevationDict;
         Dictionary<string, OSM_Waterway> waterwayDict;
         Dictionary<string, HashSet<string>> stateBorderDict;
+
+        string saveLoc;
         int rank = 0;
         private void RunButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(saveLoc))
+            {
+                MessageBox.Show("Please select a save location before running");
+                return;
+            }
+
             rank = 0;
             wayDict = new Dictionary<string, OSM_Road>();
             nodeDict = new Dictionary<string, OSM_Node>();
@@ -890,7 +898,7 @@ namespace OSM_Topography
 
         private void PrintVertices(Dictionary<string, Vertice> verticeDict)
         {
-            StreamWriter verticeWriter = new StreamWriter(@"E:\Desktop\Personal Projects\Output Files\elevationPoints.csv");
+            StreamWriter verticeWriter = new StreamWriter(string.Concat(saveLoc, @"\elevationPoints.csv"));
             verticeWriter.WriteLine("Latitude,Longitude,Elevation,Rank,isEdge");
 
             foreach (Vertice v in verticeDict.Values)
@@ -902,7 +910,7 @@ namespace OSM_Topography
 
         private void PrintWaterways(List<OSM_Waterway> waterwayDict)
         {
-            StreamWriter waterWriter = new StreamWriter(@"E:\Desktop\Personal Projects\Output Files\waterways.csv");
+            StreamWriter waterWriter = new StreamWriter(string.Concat(saveLoc, @"\waterways.csv"));
             waterWriter.WriteLine("Latitude,Longitude,ID,Type,Distance,Total Angle,KeepNode");
 
             foreach (OSM_Waterway w in waterwayDict)
@@ -913,6 +921,14 @@ namespace OSM_Topography
                 }
             }
             waterWriter.Close();
+        }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.ShowDialog();
+            saveLoc = fbd.SelectedPath;
+            saveLocTextBox.Text = saveLoc;
         }
     }
 }

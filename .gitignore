@@ -1,15 +1,4 @@
 
 .vs/OSM_Topography/v16/.suo
-OSM_Topography/bin/Debug/KdTreeLib.dll
-OSM_Topography/bin/Debug/OSM_Topography.exe
-OSM_Topography/bin/Debug/OSM_Topography.exe.config
-OSM_Topography/bin/Debug/OSM_Topography.pdb
-OSM_Topography/obj/Debug/OSM_Topography.csproj.CopyComplete
-OSM_Topography/obj/Debug/OSM_Topography.csproj.CoreCompileInputs.cache
-OSM_Topography/obj/Debug/OSM_Topography.csproj.FileListAbsolute.txt
-OSM_Topography/obj/Debug/OSM_Topography.csproj.GenerateResource.cache
-OSM_Topography/obj/Debug/OSM_Topography.csprojAssemblyReference.cache
-OSM_Topography/obj/Debug/OSM_Topography.exe
-OSM_Topography/obj/Debug/OSM_Topography.OSM_TopographyGenerator.resources
-OSM_Topography/obj/Debug/OSM_Topography.pdb
-OSM_Topography/obj/Debug/OSM_Topography.Properties.Resources.resources
+OSM_Topography/bin/**
+OSM_Topography/obj/**
